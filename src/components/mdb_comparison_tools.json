@@ -1,0 +1,214 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MicrobeDB.jp Comparison Analysis",
+    "description": "Comparison Analysis Tools Definition For MicrobeDB.jp",
+    "version": "1.0.0"
+  },
+  "host": "beta.microbedb.jp",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/compare",
+  "produces": [
+    "text/html"
+  ],
+  "paths": {
+    "/metagenome": {
+      "get": {
+        "tags": [
+          "Metagenome"
+        ],
+        "description": "Metagenome sample comparison analysis",
+        "operationId": "metagenome",
+        "produces": [
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "name": "sample_ids",
+            "in": "query",
+            "description": "Input Sample IDs with Comma-separated\n (DRS000009, SRS001216, GR10, GR11, ...)",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "maxItems": 100,
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "tax_rank",
+            "in": "query",
+            "description": "Input taxonomy rank (domain, phylum, class, order, family,genus)",
+            "required": false,
+            "type": "string",
+            "default": "phylum",
+            "enum": [
+              "domain",
+              "phylum",
+              "class",
+              "order",
+              "family",
+              "genus"
+            ]
+          },
+          {
+            "name": "func_type",
+            "in": "query",
+            "description": "ko, pathway, mbgd. default value is pathway",
+            "required": false,
+            "type": "string",
+            "default": "pathway",
+            "enum": [
+              "pathway",
+              "ko",
+              "mbgd"
+            ]
+          },
+          {
+            "name": "stanza_names",
+            "in": "query",
+            "description": "Input stanza names to show (\"samples_taxonomy_comparison_stackbar_stanza\", \"samples_taxonomy_comparison_heatmap_stanza\", ...)",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "enum": [
+              "samples_taxonomy_comparison_stackbar",
+              "samples_taxonomy_comparison_heatmap",
+              "samples_taxonomy_diversity_index_comparison_plot",
+              "samples_taxonomy_comparison_hierarchical_clustering",
+              "samples_taxonomy_comparison_pcoa",
+              "samples_function_comparison_stackbar",
+              "samples_function_comparison_heatmap",
+              "samples_metadata_comparison_table"
+            ],
+            "default": [
+              "samples_taxonomy_comparison_stackbar",
+              "samples_taxonomy_comparison_heatmap",
+              "samples_taxonomy_diversity_index_comparison_plot",
+              "samples_taxonomy_comparison_hierarchical_clustering",
+              "samples_taxonomy_comparison_pcoa",
+              "samples_function_comparison_stackbar",
+              "samples_function_comparison_heatmap",
+              "samples_metadata_comparison_table"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation"
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        }
+      }
+    },
+    "/genome": {
+      "get": {
+        "tags": [
+          "Multi Taxonomy"
+        ],
+        "description": "genome comparison analysis",
+        "operationId": "genome",
+        "produces": [
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "name": "tax_id",
+            "in": "query",
+            "description": "Input NCBI taxonomy IDs that are annotated gene function in KEGG by comma separated style.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": "519441,1001582",
+            "minItems": 2,
+            "maxItems": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation"
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        }
+      }
+    },
+    "/hologenome": {
+      "get": {
+        "tags": [
+          "Hologenome"
+        ],
+        "description": "Hologenome analysis",
+        "operationId": "hologenome",
+        "produces": [
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "name": "host_name",
+            "in": "query",
+            "description": "Input host name.",
+            "required": true,
+            "type": "string",
+            "default": "Lotus japonicus",
+            "enum": [
+              "Lotus japonicus"
+            ]
+          },
+          {
+            "name": "asm_ids",
+            "in": "query",
+            "description": "Input genome assembly IDs with Comma-separated\n (GCF_000009625.1)",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 2,
+            "collectionFormat": "csv"
+          },
+          {
+            "name": "stanza_names",
+            "in": "query",
+            "description": "Input stanza names to display",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "csv",
+            "enum": [
+              "hologenome_component_host",
+              "hologenome_component_symbiont",
+              "hologenome_comparison_table"
+            ],
+            "default": [
+              "hologenome_component_host",
+              "hologenome_component_symbiont"
+            ]
+          }        
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation"
+          },
+          "400": {
+            "description": "Bad Request."
+          }
+        }
+      }
+    }    
+  }
+}

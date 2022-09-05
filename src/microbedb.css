@@ -1,0 +1,320 @@
+@charset "utf-8";
+
+.page {
+  padding: 20px;
+  min-height: calc(100vh - 50px);
+}
+p {
+  line-height:1.5;
+}
+
+#container {
+  text-align: center;
+  margin: 0px auto;
+}
+
+#header {
+  margin: 80px auto 30px;
+  width: 600px;
+  position:relative;
+  height:80px;
+}
+
+#login-status {
+  text-align: right;
+  margin: 10px 10px 0px 0px;
+}
+
+div #component {
+  margin: 6px 10px 0px 10px;
+}
+
+span.errorMessage {
+  margin: 10px;
+  color: red;
+}
+
+.logoImage {
+  height:60px;
+}
+.footer {
+  height: 50px;
+}
+.footer .license{
+  font-size: 10px;
+}
+
+span.right {
+    float: right;
+}
+
+/* ------------------------------------------------
+  TOP
+------------------------------------------------ */
+
+/* ------------------------------------------------
+  Gene Literature
+------------------------------------------------ */
+#literatureTable td {
+  text-align: left;
+  border: none black 0px;
+}
+
+#literatureTable td.no {
+  vertical-align: top;
+}
+
+/* --------------------------------------------------
+    Search Result List
+--------------------------------------------------- */
+
+#contents-subject {
+  font-size: large;
+  font-weight: bold;
+  font-family: Verdana, Arial, sans-serif,osaka;
+}
+
+#contents-table {
+  min-width : 100%;
+}
+
+#contents-table td {
+  border: 1px solid #C1D0DF;
+  padding: 1px;
+}
+
+#contents-table th {
+  text-align: center;
+  vertical-align: top;
+  border: solid #C1D0DF 1px;
+  background-color: #ECECEC;
+}
+
+#contents-table td.label {
+  text-align: left;
+  vertical-align: top;
+}
+
+#contents-table td.number {
+  text-align: right;
+}
+
+#contents-table td.code {
+  text-align: center;
+  vertical-align: top;
+}
+#contents-table td.key {
+  background-color: #ECECEC;
+  font-weight: bold;
+  text-align: left;
+  vertical-align: top;
+  border: solid #C1D0DF 1px;
+}
+
+.stanza-table {
+  width: 100%;
+}
+
+.stanza-table td {
+  padding: 3px;
+}
+
+.stanza-table td.number {
+  text-align: right;
+}
+
+.stanza-table th {
+  padding: 3px;
+  background-color: #ECECEC;
+}
+
+.table-pagination {
+  width: 300px;
+  margin-left: auto;
+}
+
+.table-pagination>.enable,
+.table-pagination>.lnk-page>a
+{
+  color: #337ab7;
+  cursor: pointer;
+}
+
+.table-pagination>.disable {
+  color: #999;
+}
+
+.pagination-status {
+  display: inline-block;
+  padding: 10px;
+}
+
+#heatmap-table {
+  margin: 1px;
+}
+
+#heatmap-table td{
+  height: 20px;
+}
+#heatmap-table td.sample{
+  width: 20px;
+}
+#heatmap-table td.environment{
+  width: 150px;
+  text-align: left;
+}
+
+/* --------------------------------------------------
+    Suggestion UI
+--------------------------------------------------- */
+
+#main_page { margin: 15px;}
+
+.search_box {
+  width: 95%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+  padding: 10px;
+}
+.search_box .term {
+  margin: 2px;
+}
+
+.search_box input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  width: 800px !important;
+  max-width: inherit;
+}
+
+.search_box .term [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.search_box .term [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+
+.term-environment, .term-meo {
+  background-color: #5cb85c;
+  border-color: #418441;
+  margin: 0.1em;
+}
+
+.term-taxonomy {
+  background-color: #f0ad4e;
+  margin: 0.1em;
+}
+
+.term-phenotype, .term-mpo{
+  background-color: #ee82ee;
+  margin: 0.1em;
+}
+
+.term-gene, .term-mbgd{
+  background-color: #5bc0de;
+  margin: 0.1em;
+}
+
+.term-other {
+  background-color: #777777;
+}
+
+.term-unfixed {
+  background-color: #ffffff;
+  color:#db8093;
+  border:1px solid #db8093;
+}
+
+.term-default, .term-hmado, .term-pdo, .term-kegg, .term-strain, .term-sample{
+  background-color: #777777;
+  margin: 0.1em;
+}
+
+div.suggestion_frame {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding:5px;
+  margin:10px;
+}
+
+div.stanza_frame {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding:0px;
+  margin:20px 10px 20px 10px;
+}
+iframe.stanza {
+  border: none;
+  width:100%;
+}
+.stanza_header {
+  width: 100%;
+  height: 25px;
+  background-color: #DAE11B;
+  font-size: 150%;
+}
+.panel-title.stanza-title {
+  display: inline;
+}
+.stanza_help_link {
+  float: right;
+  margin-right: 5px;
+}
+a.stanza {
+  text-decoration: none;
+  line-height: 1.8;
+}
+a.spell_check_link {
+  margin: 7px;
+  font-style: italic;
+}
+.category_suggest td.items {
+  line-height: 150%;
+  padding:2px;
+  word-break:break-all;
+  /*overflow:break-word;*/
+  overflow:auto;
+}
+div.message {
+  padding:5px;
+  margin:10px;
+}
+span.input_text {
+  font-size: 90%;
+  margin-right: 5px;
+}
+span.suggest-category { font-size: 90% }
+
+/* --------------------------------------------------
+    Personal page UI
+--------------------------------------------------- */
+.user_page{ padding: 20px;}
+
+.tab-pane { padding: 20px;}
+
+.before-table { margin: 10px;}
+.before-tab { margin: 0px 0px 20px 10px;}
+.well{
+  background-color: #ffffff;
+}
+
+.selected_sample_box {
+  line-height: 180%;
+  padding:2px;
+}

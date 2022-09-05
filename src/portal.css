@@ -1,0 +1,20 @@
+dt,dd {
+  font-family: sans-serif;
+  font-size: 100%;
+}
+.top-component {
+  min-height: 200px;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  --bs-navbar-padding-y: 0
+}
