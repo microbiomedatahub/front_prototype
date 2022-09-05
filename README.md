@@ -1,3 +1,78 @@
+# Elasticsearchのインストール
+- バージョンは6.4.3限定（6.x.xは動くかも、7.x.xはそのままでは動かない）
+- リバースプロキシを設定しない場合（開発環境）はcorsの設定をする
+ 
+  /etc/elasticsearch/elasticsearch.yml を編集し以下を追加
+```
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+```
+
+
+# 起動方法
+
+## Node.js のインストール
+- node.js をインストールする
+
+  https://nodejs.org/ja/
+
+## Github からclone する
+```
+git clone git@github.com:microbiomedatahub/front_prototype.git
+```
+
+## パッケージのインストール
+```
+# cd front_parototype
+# npm i
+```
+
+## ElasticsearchのURL編集
+- 必要応じてelasticsearchのURL変える
+
+  src/pages/analysis/metagenome_seacrhkit.jsを編集
+```
+const host = "http://192.168.10.106:9200/facet_metagenome_public"
+```
+
+
+## 開発サーバー起動
+```
+# npm start
+``` 
+開発サーバーはコードの変更を反映するので、再起動は必要ありません。
+
+## コンテンツ開発
+### analysis追加
+- src/pages/analysis以下にファイルを追加します。
+
+ex) src/pages/analysis/hogegenome.js
+
+- src/App.jsを編集してhogegenomeをインポートします。
+```
+import Hogegenome  from './pages/analysis/hogegenome_searchkit';
+```
+
+- ルーティングの設定をします。
+```
+<Route path="/analysis/metagenome" element={<Metagenome />} />
+// 追加
+<Route path="/analysis/hogegenome" element={<Hogegenome />} />
+```
+
+- ヘッダーにリンクを追加します。
+
+  src/pages/header.js を編集
+```
+<li><a href="/analysis/metagenome">Metagenomic samples</a></li>
+// 以下追加
+<li><a href="/analysis/hogegenome">Hogegenomic samples</a></li>
+```
+
+
+# ###########################
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
