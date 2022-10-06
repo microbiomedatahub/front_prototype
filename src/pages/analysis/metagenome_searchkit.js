@@ -317,13 +317,15 @@ class Metagenome extends React.Component {
 
     /*
      * elasticsearch_controller#metagneome_search
+     * 環境変数からelasticsearchのURLを読み込む
      */
+    const host = process.env.REACT_APP_ELASTICSEARCH_HOST
     //const host = "/es/mdb_common/"
     //const host = "http://localhost:9200/facet_metagenome_public"
-    const host = "http://192.168.10.106:9200/facet_metagenome_public"
+    //const host = "http://192.168.10.106:9200/facet_metagenome_public"
     //const host = "http://localhost:9200/test/sample_metadata"
-    //const sk = new SearchkitManager(host, {timeout:20000, getLocation:this.location, createHistory:this.createHistory, useHistory:true})
-    const sk = new SearchkitManager(host)
+    const sk = new SearchkitManager(host, {timeout:20000, getLocation:this.location, createHistory:this.createHistory, useHistory:true})
+   
     
     /*
      * default queryの組み立て
