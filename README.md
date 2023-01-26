@@ -22,9 +22,10 @@ git clone git@github.com:microbiomedatahub/front_prototype.git
 ```
 
 ## パッケージのインストール
+- package-lock.jsonを書き換えないようにするので、`nmp i` は使わない
 ```
 # cd front_parototype
-# npm i
+# npm ci
 ```
 
 ## ElasticsearchのURL編集
@@ -40,7 +41,8 @@ const host = "http://192.168.10.106:9200/facet_metagenome_public"
 ```
 # npm start
 ``` 
-開発サーバーはコードの変更を反映するので、再起動は必要ありません。
+- 開発サーバーはコードの変更を反映するので、再起動は必要ありません。
+ただし、.env の内容を書き換えた場合は、再起動必要
 
 ## コンテンツ開発
 ### analysis追加
