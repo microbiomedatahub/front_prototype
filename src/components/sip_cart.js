@@ -1,6 +1,23 @@
 import React, { Component } from 'react'
 import ReactSelect from 'react-select'
 import request  from 'superagent'
+// simplest method: uses precompiled complete bundle from `plotly.js`
+import Plot from 'react-plotly.js';
+import PlotData from '../data/test.json'
+
+/*
+class SipPlot extends React.Component {
+  render() {
+    return (
+      <Plot
+
+        data = {PlotData}
+        layout={ {barmode: "stack", width: 1000, height: 600, title: 'Dat Plot'} }
+      />
+    );
+  }
+}
+*/
 
 class RemoveBtn extends React.Component {
   constructor(props){
@@ -25,11 +42,7 @@ class RemoveBtn extends React.Component {
   }
 }
 
-class SipPlot extends React.Component {
-  
-}
-
-class Cart extends React.Component {
+class SipCart extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -277,6 +290,7 @@ class Cart extends React.Component {
     }
 
     // URLを組み立てリクエストを投げる
+    // ここでPlotlyで表示するデータを取得する
     const requestHandler = (e) => {
       const sample_name = this.sample["name"]
       let URL = this.reqUrl
@@ -285,6 +299,10 @@ class Cart extends React.Component {
       const params = this.options.map(function(option, index, ary){
         return "&" + option["name"] + "=" + cart.state[option["name"]]
       })
+
+      console.log("===============")
+      console.log(URL)
+      console.log("==================")
       request.get(URL + params.join('')).end(requestCallback)
     }
   
@@ -306,6 +324,9 @@ class Cart extends React.Component {
       classNames = "btn btn-info compare disabled"
     }
 
+    let plot_data = PlotData;
+
+
     return (
         <div>
           <div className="cart" >
@@ -318,16 +339,33 @@ class Cart extends React.Component {
             </div>
             <div className="notice">{notice}</div>
             <div>
-              {renderOptions}
+              {/*renderOptions*/}
               {renderDetail}
             </div>
           </div>
           <div className="response">
-            {renderResponse}
+            {/*renderResponse*/}
           </div>
+
+          <Plot
+            /*
+            data={[
+            {
+              x: [1, 2, 3],
+              y: [2, 6, 3],
+              type: 'scatter',
+              mode: 'lines+markers',
+              marker: {color: 'red'},
+            },
+            {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
+            ]}
+            */
+            data = {plot_data}
+            layout={ {barmode: "stack", width: 1000, height: 600, title: 'Data Plot'} }
+          />
         </div>
     )
   }
 }
 
-export default Cart
+export default SipCart

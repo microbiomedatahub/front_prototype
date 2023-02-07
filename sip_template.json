@@ -1,0 +1,366 @@
+{
+  "index_patterns": "sip_facet*",
+  "mappings" : {
+   "sip_facet" : {
+    "properties" : {
+     "sex" : {
+      "type" : "keyword"
+     },
+     "location" : {
+      "type" : "keyword"
+     },
+     "healthy" : {
+      "type" : "keyword"
+     },
+     "feces_type" : {
+      "type" : "keyword"
+     },
+     "AntibioticRegimen" : {
+      "type" : "keyword"
+     },
+     "EnvTemperature" : {
+      "type" : "float"
+     },
+     "HMADO" : {
+      "type" : "nested",
+      "properties" : {
+       "ancestors" : {
+        "type" : "keyword"
+       },
+       "level" : {
+        "type" : "integer"
+       },
+       "order" : {
+        "type" : "integer"
+       },
+       "value" : {
+        "type" : "keyword"
+       }
+      }
+     },
+     "HostAge" : {
+      "type" : "integer"
+     },
+     "HostBMI" : {
+      "type" : "float"
+     },
+     "HostEthnicity" : {
+      "type" : "text"
+     },
+     "MEO_component" : {
+      "type" : "nested",
+      "properties" : {
+       "ancestors" : {
+        "type" : "keyword"
+       },
+       "level" : {
+        "type" : "integer"
+       },
+       "order" : {
+        "type" : "integer"
+       },
+       "value" : {
+        "type" : "keyword"
+       }
+      }
+     },
+     "MEO_env" : {
+      "type" : "nested",
+      "properties" : {
+       "ancestors" : {
+        "type" : "keyword"
+       },
+       "level" : {
+        "type" : "integer"
+       },
+       "order" : {
+        "type" : "integer"
+       },
+       "value" : {
+        "type" : "keyword"
+       }
+      }
+     },
+     "PH" : {
+      "type" : "byte"
+     },
+     "ProbioticTreatment" : {
+      "type" : "keyword"
+     },
+     "annotations" : {
+      "properties" : {
+       "assertion" : {
+        "type" : "text"
+       },
+       "identity" : {
+        "properties" : {
+         "identifier" : {
+          "type" : "keyword"
+         },
+         "name" : {
+          "type" : "keyword"
+         }
+        }
+       },
+       "label" : {
+        "type" : "keyword"
+       },
+       "lineage" : {
+        "type" : "text"
+       },
+       "lineage_id" : {
+        "type" : "text"
+       },
+       "lineage_list" : {
+        "properties" : {
+         "id" : {
+          "type" : "keyword"
+         },
+         "label" : {
+          "type" : "text"
+         }
+        }
+       },
+       "suggest" : {
+        "type" : "text"
+       },
+       "wasDerivedFrom" : {
+        "properties" : {
+         "method" : {
+          "type" : "text"
+         },
+         "primarySource" : {
+          "properties" : {
+           "attribute_name" : {
+            "type" : "text"
+           },
+           "attribute_value" : {
+            "type" : "text"
+           },
+           "envo_id" : {
+            "type" : "text",
+            "fields" : {
+             "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+             }
+            }
+           },
+           "envo_label" : {
+            "type" : "text",
+            "fields" : {
+             "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+             }
+            }
+           },
+           "meo_id" : {
+            "type" : "text",
+            "fields" : {
+             "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+             }
+            }
+           }
+          }
+         },
+         "wasDerivedFrom" : {
+          "properties" : {
+           "meo_name" : {
+            "type" : "text"
+           },
+           "name" : {
+            "type" : "text",
+            "fields" : {
+             "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+             }
+            }
+           },
+           "name_type" : {
+            "type" : "text"
+           }
+          }
+         }
+        }
+       },
+       "wasGeneratedBy" : {
+        "type" : "text"
+       }
+      }
+     },
+     "assembly_level" : {
+      "type" : "keyword"
+     },
+     "attributes" : {
+      "properties" : {
+       "assertion" : {
+        "type" : "text"
+       },
+       "classes" : {
+        "properties" : {
+         "identifier" : {
+          "type" : "text",
+          "fields" : {
+           "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+           }
+          }
+         },
+         "name" : {
+          "type" : "text",
+          "fields" : {
+           "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+           }
+          }
+         }
+        }
+       },
+       "harmonized_name" : {
+        "type" : "text"
+       },
+       "name" : {
+        "type" : "text"
+       },
+       "type" : {
+        "type" : "text"
+       },
+       "unit" : {
+        "type" : "text",
+        "fields" : {
+         "keyword" : {
+          "type" : "keyword",
+          "ignore_above" : 256
+         }
+        }
+       },
+       "value" : {
+        "type" : "text"
+       },
+       "wasDerivedFrom" : {
+        "properties" : {
+         "wasGeneratedBy" : {
+          "type" : "text"
+         }
+        }
+       }
+      }
+     },
+     "culture_collection" : {
+      "type" : "keyword"
+     },
+     "dateCreated" : {
+      "type" : "date"
+     },
+     "dateModified" : {
+      "type" : "date"
+     },
+     "datePublished" : {
+      "type" : "date"
+     },
+     "db_xrefs" : {
+      "properties" : {
+       "identifier" : {
+        "type" : "keyword"
+       },
+       "name" : {
+        "type" : "keyword"
+       }
+      }
+     },
+     "description" : {
+      "type" : "text"
+     },
+     "group" : {
+      "properties" : {
+       "id" : {
+        "type" : "integer"
+       },
+       "submission" : {
+        "type" : "integer"
+       }
+      }
+     },
+     "hasAnalysis" : {
+      "type" : "keyword"
+     },
+     "hasHostTaxonomyNames" : {
+      "type" : "text"
+     },
+     "hasTaxonomyNames" : {
+      "type" : "text"
+     },
+     "hmadoTerms" : {
+      "type" : "text"
+     },
+     "hostTaxonomy" : {
+      "type" : "nested",
+      "properties" : {
+       "ancestors" : {
+        "type" : "keyword"
+       },
+       "level" : {
+        "type" : "integer"
+       },
+       "order" : {
+        "type" : "integer"
+       },
+       "value" : {
+        "type" : "keyword"
+       }
+      }
+     },
+     "identifier" : {
+      "type" : "keyword"
+     },
+     "isFunctionalAnnotation" : {
+      "type" : "boolean"
+     },
+     "isTaxonomicAnnotation" : {
+      "type" : "boolean"
+     },
+     "meoTerms" : {
+      "type" : "text"
+     },
+     "name" : {
+      "type" : "keyword"
+     },
+     "organism" : {
+      "properties" : {
+       "identifier" : {
+        "type" : "text"
+       },
+       "name" : {
+        "type" : "keyword"
+       }
+      }
+     },
+     "package" : {
+      "type" : "text"
+     },
+     "taxonomy" : {
+      "type": "text" 
+     },
+     "taxonomyTerms" : {
+      "type" : "text"
+     },
+     "title" : {
+      "type" : "text"
+     }
+    }
+   }
+  }
+}
+
+
+
+
+
+
+

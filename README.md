@@ -71,6 +71,36 @@ import Hogegenome  from './pages/analysis/hogegenome_searchkit';
 <li><a href="/analysis/hogegenome">Hogegenomic samples</a></li>
 ```
 
+## elasticsearchにデータを投入方法
+mac に es インストールしてから起動
+```
+brew services start elasticsearch@6
+```
+
+停止
+```
+brew services stop elasticsearch@6
+```
+
+template登録
+```
+curl -XPUT -H "Content-Type: application/json" -d @sip_template.json 'http://localhost:9200/_template/sip_facet_template'
+```
+template削除
+```
+curl -XDELETE 'localhost:9200/_template/sip_facet_template?pretty'
+```
+
+index data bulk登録
+sip_sample.json はconverter.rb で作成
+```
+curl -XPUT -H "Content-Type: application/x-ndjson" --data-binary @sip_sample.json 'http://localhost:9200/sip_facet_public/sip_facet/_bulk'
+```
+
+index 削除
+```
+curl -XDELETE 'http://localhost:9200/sip_facet_public?pretty'
+```
 
 # ###########################
 

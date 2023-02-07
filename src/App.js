@@ -7,7 +7,8 @@ import Header from './pages/header'
 import Footer from './pages/footer'
 import Portal from './pages/portal'
 
-import Metagenome  from './pages/analysis/metagenome_searchkit';
+//import Metagenome  from './pages/analysis/metagenome_searchkit';
+import Sip from './pages/analysis/sip_searchkit';
 import About from './pages/about';
 
 
@@ -19,7 +20,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Portal />} />
       <Route path="/about" element={<About />} />
-      <Route path="/analysis/metagenome" element={<Metagenome />} />
+      <Route path="/analysis/sip" element={<Sip />} />
       </Routes>
       <Footer />
     </div>

@@ -1,5 +1,10 @@
 @import "./_variables.scss";
 
+.sk-layout {
+  margin-top: 64px;
+  width: 120%;
+}
+
 .search {
   &__query {
     position:absolute;

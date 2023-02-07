@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Header() {
   return (
-    <Navbar id="myNavbar"  className="navbar navbar-default navbar-fixed-top" style={{position: "sticky", marginBottom: 0}} role="navigation">
+    <Navbar id="myNavbar"  className="navbar navbar-default navbar-fixed-top" style={{ marginBottom: 0, witdh: '100%' }} role="navigation">
     <div className="container-fluid">
       {/*
       <div className="navbar-header">
