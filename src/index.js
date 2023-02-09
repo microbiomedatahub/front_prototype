@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 
 
 
-import Application from './pages/analysis/metagenome_searchkit'
+//import Application from './pages/analysis/metagenome_searchkit'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import Test from './pages/analysis/test';
+//import Test from './pages/analysis/test';
 
 ReactDOM.render(
   <BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
