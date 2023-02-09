@@ -8,8 +8,45 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
+## mac に　elasticsearch インストール方法
+mac に es インストールしてから起動
+```
+brew services start elasticsearch@6
+```
 
-# 起動方法
+停止
+```
+brew services stop elasticsearch@6
+```
+
+## elasticsearchにSIPデータを投入方法
+### template 登録
+template登録
+```
+curl -XPUT -H "Content-Type: application/json" -d @sip_template.json 'http://localhost:9200/_template/sip_facet_template'
+```
+template削除
+```
+curl -XDELETE 'localhost:9200/_template/sip_facet_template?pretty'
+```
+### buld登録用のndjson作成
+```
+ruby converter.rb [入力tsvファイル]
+```
+sip_sample.json というファイルが生成される
+
+### index data bulk登録
+converter.rb で作成したsip_sample.json を指定
+```
+curl -XPUT -H "Content-Type: application/x-ndjson" --data-binary @sip_sample.json 'http://localhost:9200/sip_facet_public/sip_facet/_bulk'
+```
+
+index 削除
+```
+curl -XDELETE 'http://localhost:9200/sip_facet_public?pretty'
+```
+
+# アプリケーション起動方法
 
 ## Node.js のインストール
 - node.js をインストールする
@@ -29,13 +66,17 @@ git clone git@github.com:microbiomedatahub/front_prototype.git
 ```
 
 ## ElasticsearchのURL編集
+- .env.sample をコピーしてファイル名を.env に書き換える
 - 必要応じてelasticsearchのURL変える
 
-  src/pages/analysis/metagenome_seacrhkit.jsを編集
 ```
-const host = "http://192.168.10.106:9200/facet_metagenome_public"
+REACT_APP_ELASTICSEARCH_HOST=http://192.168.10.106:9200/facet_metagenome_public
 ```
 
+## プロジェクト選択
+```
+REACT_APP_PROJECT_TYPE=sip
+```
 
 ## 開発サーバー起動
 ```
@@ -70,6 +111,19 @@ import Hogegenome  from './pages/analysis/hogegenome_searchkit';
 // 以下追加
 <li><a href="/analysis/hogegenome">Hogegenomic samples</a></li>
 ```
+
+## プロジェクトごとのデザイン変更
+例えば、プロジェクトaを変更したい場合、project_a_css.js を編集します。 
+背景色を変更したい場合は、以下を編集します。
+```
+let background_color = "#d9e016"
+```
+その他、本格的に変更したい場合は、中のcss部分を変更します。
+また、以下の該当部分を編集します。（if 分で分岐している箇所）
+src/pages/header.js -- ヘッダー
+src/pages/footer.js -- フッター
+src/pages/portal.js -- ランディングページ
+src/pages/about.js -- アバウトページ
 
 
 # ###########################
