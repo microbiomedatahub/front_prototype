@@ -92,6 +92,7 @@ REACT_APP_PROJECT_TYPE=sip
 # npm run build
 ```
 buidディレクトリの中身をサーバーに配置すればOK
+ビルド時の.envの設定でビルドされるので、本番サーバーには.envは不必要
 
 
 ## コンテンツ開発
