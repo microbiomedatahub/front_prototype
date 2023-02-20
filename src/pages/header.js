@@ -3,6 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Routes, Route, Link } from 'react-router-dom';
 
 const PROJECT_TYPE = process.env.REACT_APP_PROJECT_TYPE
 
@@ -14,12 +15,12 @@ function Header() {
   
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="nav navbar-nav">
-            <li><a href="/"><strong>Project SIP Home</strong></a></li>
-            <li><a href="<%= Settings.uris.document_en %>"><strong>Document</strong></a></li>
+            <li><Link to="/"><strong>Project SIP Home</strong></Link></li>
+            <li><Link to="/"><strong>Document</strong></Link></li>
             <li className="dropdown"> <a href="#" className="dropdown-toggle" data-toggle="dropdown"><strong>Analysis</strong></a>
               <ul className="dropdown-menu">
                 <li className="dropdown-header">Comparative analysis: </li>
-                <li><a href="/analysis/sip">SIP samples</a></li>
+                <li><Link to="/analysis/sip">SIP sample</Link></li>
               </ul>
             </li>
           </ul>
@@ -41,12 +42,12 @@ function Header() {
   
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="nav navbar-nav">
-            <li><a href="/"><strong>Project A Home</strong></a></li>
-            <li><a href="<%= Settings.uris.document_en %>"><strong>Document</strong></a></li>
+            <li><Link to="/"><strong>Project A Home</strong></Link></li>
+            <li><Link to="/"><strong>Document</strong></Link></li>
             <li className="dropdown"> <a href="#" className="dropdown-toggle" data-toggle="dropdown"><strong>Analysis</strong></a>
               <ul className="dropdown-menu">
                 <li className="dropdown-header">Comparative analysis: </li>
-                <li><a href="/analysis/metagenome">Metagenomic samples</a></li>
+                <li><Link to="/analysis/metagenome">Metagenomic samples</Link></li>
               </ul>
             </li>
           </ul>
@@ -68,12 +69,12 @@ function Header() {
   
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="nav navbar-nav">
-            <li><a href="/"><strong>Project B Home</strong></a></li>
-            <li><a href="<%= Settings.uris.document_en %>"><strong>Document</strong></a></li>
+            <li><Link to="/"><strong>Project B Home</strong></Link></li>
+            <li><Link to="/"><strong>Document</strong></Link></li>
             <li className="dropdown"> <a href="#" className="dropdown-toggle" data-toggle="dropdown"><strong>Analysis</strong></a>
               <ul className="dropdown-menu">
                 <li className="dropdown-header">Comparative analysis: </li>
-                <li><a href="/analysis/metagenome">Metagenomic samples</a></li>
+                <li><Link to="/analysis/metagenome">Metagenomic samples</Link></li>
               </ul>
             </li>
           </ul>
@@ -95,12 +96,12 @@ function Header() {
   
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="nav navbar-nav">
-            <li><a href="/"><strong>Project C Home</strong></a></li>
-            <li><a href="<%= Settings.uris.document_en %>"><strong>Document</strong></a></li>
+            <li><Link to="/"><strong>Project C Home</strong></Link></li>
+            <li><Link to="/"><strong>Document</strong></Link></li>
             <li className="dropdown"> <a href="#" className="dropdown-toggle" data-toggle="dropdown"><strong>Analysis</strong></a>
               <ul className="dropdown-menu">
                 <li className="dropdown-header">Comparative analysis: </li>
-                <li><a href="/analysis/metagenome">Metagenomic samples</a></li>
+                <li><Link to="/analysis/metagenome">Metagenomic samples</Link></li>
               </ul>
             </li>
           </ul>
