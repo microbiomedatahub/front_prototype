@@ -68,9 +68,11 @@ git clone git@github.com:microbiomedatahub/front_prototype.git
 ## ElasticsearchのURL編集
 - .env.sample をコピーしてファイル名を.env に書き換える
 - 必要応じてelasticsearchのURL変える
+- 必要応じてpltly APIのURL変える
 
 ```
 REACT_APP_ELASTICSEARCH_HOST=http://192.168.10.106:9200/facet_metagenome_public
+REACT_APP_PLOTLY_URL=https://mb.ddbj.nig.ac.jp/plotly_data?view=taxonomic_comparison&id=
 ```
 
 ## プロジェクト選択

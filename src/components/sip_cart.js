@@ -3,21 +3,7 @@ import ReactSelect from 'react-select'
 import request  from 'superagent'
 // simplest method: uses precompiled complete bundle from `plotly.js`
 import Plot from 'react-plotly.js';
-import PlotData from '../data/test.json'
-
-/*
-class SipPlot extends React.Component {
-  render() {
-    return (
-      <Plot
-
-        data = {PlotData}
-        layout={ {barmode: "stack", width: 1000, height: 600, title: 'Dat Plot'} }
-      />
-    );
-  }
-}
-*/
+//import PlotData from '../data/test.json'
 
 class RemoveBtn extends React.Component {
   constructor(props){
@@ -81,7 +67,7 @@ class SipCart extends React.Component {
       this.setState({
         items: items,
         count: items.length
-      })
+      });
     }
     
     this.getItems = function(){
@@ -118,6 +104,7 @@ class SipCart extends React.Component {
     }
   }
 
+  /*
   renderResponse(){
     const data = this.state.data
 
@@ -176,6 +163,26 @@ class SipCart extends React.Component {
     return div
 
   }
+  */
+
+  renderPlotlyResponse() {
+    const data = this.state.data
+    if(data.length > 0) {
+      return(
+        <Plot
+          data = {data}
+          layout={ {barmode: "stack", width: 1000, height: 600, title: 'Data Plot'} }
+        />
+      );
+    } else {
+      return (
+        <div></div>
+      );
+    }
+  }
+
+
+  
 
   renderOptions () {
     const changeState = (name, val) => {
@@ -275,7 +282,8 @@ class SipCart extends React.Component {
   render() {
     const renderOptions = this.renderOptions()
     const renderDetail = this.renderDetail()
-    const renderResponse = this.renderResponse()
+    //const renderResponse = this.renderResponse()
+    const renderPlotlyResponse = this.renderPlotlyResponse()
     const label = this.getLabel()
 
     // レスポンスの処理
@@ -292,18 +300,18 @@ class SipCart extends React.Component {
     // URLを組み立てリクエストを投げる
     // ここでPlotlyで表示するデータを取得する
     const requestHandler = (e) => {
-      const sample_name = this.sample["name"]
       let URL = this.reqUrl
-      URL = URL + "?" + sample_name  + "=" + this.state.items
       const cart = this
-      const params = this.options.map(function(option, index, ary){
-        return "&" + option["name"] + "=" + cart.state[option["name"]]
-      })
 
-      console.log("===============")
-      console.log(URL)
-      console.log("==================")
-      request.get(URL + params.join('')).end(requestCallback)
+      const params = this.state.items
+      if(this.state.items.length > 0) {
+        console.log(" rrequest します")
+        request.get(URL + params.join(',')).end(requestCallback)
+      } else {
+        this.setState({
+          data:[]
+        })
+      }
     }
   
     // 詳細表示、非表示
@@ -313,19 +321,8 @@ class SipCart extends React.Component {
       })
     }
     
-    
     let notice = ""
-    let classNames = ""
-
-    if(this.state.items.length >= parseInt(this.sample["minItems"]) && this.state.items.length <= parseInt(this.sample["maxItems"]) && this.options.length > 0) {
-      classNames = "btn btn-info compare"
-    } else {
-      notice = "Please select items within range " + this.sample["minItems"] + " - " + this.sample["maxItems"]
-      classNames = "btn btn-info compare disabled"
-    }
-
-    let plot_data = PlotData;
-
+    let classNames = "btn btn-info compare"
 
     return (
         <div>
@@ -334,7 +331,7 @@ class SipCart extends React.Component {
             <button type="button" className="btn btn-default" aria-label="Left Align" onClick={handleClick} >
               <span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </button>
-            <div className={classNames} onClick={requestHandler}>Compare
+            <div className={classNames} onClick={requestHandler}>Plot
               <span className="badge">{this.state.count}</span>
             </div>
             <div className="notice">{notice}</div>
@@ -344,25 +341,8 @@ class SipCart extends React.Component {
             </div>
           </div>
           <div className="response">
-            {/*renderResponse*/}
+            {renderPlotlyResponse}
           </div>
-
-          <Plot
-            /*
-            data={[
-            {
-              x: [1, 2, 3],
-              y: [2, 6, 3],
-              type: 'scatter',
-              mode: 'lines+markers',
-              marker: {color: 'red'},
-            },
-            {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
-            ]}
-            */
-            data = {plot_data}
-            layout={ {barmode: "stack", width: 1000, height: 600, title: 'Data Plot'} }
-          />
         </div>
     )
   }

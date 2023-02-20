@@ -302,8 +302,8 @@ class Sip extends React.Component {
     this.tax_ranks_json = MetagenomeJson["paths"]["/metagenome"]["get"]["parameters"][1] // tax_runks
     this.funcs_json = MetagenomeJson["paths"]["/metagenome"]["get"]["parameters"][2] //funcs
     
-    // compareのurl
-    this.reqUrl = MetagenomeJson["basePath"] + "/" + MetagenomeJson["paths"]["/metagenome"]["get"]["operationId"]
+    // PlotlyのURL
+    this.reqUrl = process.env.REACT_APP_PLOTLY_URL
   }
   
 
