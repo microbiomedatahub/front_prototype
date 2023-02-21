@@ -171,7 +171,7 @@ class SipCart extends React.Component {
       return(
         <Plot
           data = {data}
-          layout={ {barmode: "stack", width: 1000, height: 600, title: 'Data Plot'} }
+          layout={ {barmode: "stack", width: 1400, height: 600, margin: {b: 100}, title: 'Data Plot', xaxis: {title: 'ID', tickfont: {size: 9} }, yaxis: {automargin: 'true'}  }  }
         />
       );
     } else {
