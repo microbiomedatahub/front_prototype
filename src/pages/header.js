@@ -22,8 +22,7 @@ function Header() {
       </div>
     </Navbar>
     ) 
-  }
- else if(PROJECT_TYPE == "a") {
+  } else if(PROJECT_TYPE == "a") {
     return (
       <Navbar id="myNavbar"  className="navbar navbar-default navbar-fixed-top" style={{ marginBottom: 0, witdh: '100%' }} role="navigation">
       <div className="container-fluid">
@@ -106,4 +105,5 @@ function Header() {
     ) 
   }
 }
+
 export default Header
