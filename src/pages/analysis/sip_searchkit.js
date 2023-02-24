@@ -95,12 +95,10 @@ class HitsTable extends React.Component {
     if(nextProps.selectAll === true){
       const items = this.state.items
       
-      // hasAnalysisが空配列ではない場合のみ
       this.props.hits.map(function(hit, index, ary){
-        if (hit._source["hasAnalysis"].length > 0) {
-          items.push(hit._id)
-        }
+        items.push(hit._id)
       })
+      
       
       // 重複を削除
       const newItems = items.filter((x, i, self) => self.indexOf(x) === i);
