@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../portal.css'
 import '../microbedb.css';
 
@@ -26,7 +27,7 @@ function Portal() {
           </div>
         <div className='row'>
           <div className='col-sm-8 col-sm-offset-2'>
-            <a className='lead' href='/analysis/sip' target='_blank'>Search microbiome data</a>
+            <Link to="/analysis/sip" className="lead">Search microbiome data</Link>
           </div>
         </div>
       </div>
