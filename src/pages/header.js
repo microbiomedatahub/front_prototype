@@ -15,23 +15,10 @@ function Header() {
   
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="nav navbar-nav">
-            <li><Link to="/"><strong>Project SIP Home</strong></Link></li>
-            <li><Link to="/"><strong>Document</strong></Link></li>
-            <li className="dropdown"> <a href="#" className="dropdown-toggle" data-toggle="dropdown"><strong>Analysis</strong></a>
-              <ul className="dropdown-menu">
-                <li className="dropdown-header">Comparative analysis: </li>
-                <li><Link to="/analysis/sip">SIP sample</Link></li>
+            <li><Link to="/"><strong>JGMDB Home</strong></Link></li>
+            <li><Link to="/analysis/sip"><strong>Search</strong></Link></li>
               </ul>
-            </li>
-          </ul>
-          <form className="navbar-form navbar-left" action="/search" role="search">
-            <div className="form-group">
-              <input type="text" className="form-control" name="q1" placeholder="e.g. hot spring, Enterococcus faecalis, psbA" size="40" />
-            </div>
-            <button type="submit" className="btn btn-default">Search</button>
-          </form>
-  
-        </div>
+         </div>
       </div>
     </Navbar>
     ) 
