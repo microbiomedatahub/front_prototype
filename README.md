@@ -49,7 +49,7 @@ curl -XDELETE 'http://localhost:9200/sip_facet_public?pretty'
 # アプリケーション起動方法
 
 ## Node.js のインストール
-- node.js をインストールする
+- node.js をインストールする、バージョンは12をインストールすること
 
   https://nodejs.org/ja/
 
